@@ -1,4 +1,3 @@
-
 <form class="formulaire" action="CUD/Create/inscription.php" method="post">
     <div class="colonne boxStandard">
       <h3>Formulaire d'inscription</h3>

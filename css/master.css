@@ -11,8 +11,10 @@ font-family: 'Major Mono Display', monospace;
 html {
   background-color: #000508;
 }
-h1, h2, h3 {
+h1, h2, h3, a {
   font-family: 'Major Mono Display', monospace;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
 }
 /*CSS Navigation*/
 header {
@@ -21,6 +23,7 @@ header {
   animation: gradient 15s ease infinite;
   color: #36281d;
   text-align: center;
+  border-radius: 20px 20px 0px 0px;
 }
 .listNav {
     list-style: none;
@@ -61,7 +64,8 @@ section {
 }
 /*Boxes*/
 .boxStandard {
-  border: 3px solid white;
+  border: 3px solid #9EFCEA;
+  border-radius: 20px 0px 20px 0px;
   align-items: center;
   justify-content: center;
   padding: 0.5em;
@@ -74,7 +78,7 @@ input {
 }
 .formulaire {
   height: 50vh;
-  color: white;
+  color: #9EFCEA;
   display: flex;
   flex-direction: column;
 }
@@ -100,6 +104,7 @@ input {
 /*Formulaires*/
 /*Footer*/
 footer {
+  border-radius: 0px 0px 20px 20px;
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   background-size: 400% 400%;
   animation: gradient 45s ease infinite;
