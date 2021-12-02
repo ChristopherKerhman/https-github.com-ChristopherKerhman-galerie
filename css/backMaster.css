@@ -14,7 +14,6 @@ html {
 h1, h2, h3 {
   font-family: 'Major Mono Display', monospace;
 }
-/*CSS Navigation*/
 header {
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   background-size: 400% 400%;
@@ -22,6 +21,49 @@ header {
   color: #36281d;
   text-align: center;
 }
+section {
+  height: 80vh;
+  height: 200px;
+}
+article {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+footer {
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 45s ease infinite;
+  color: #36281d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+/*Presentation classique*/
+.colonne {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.ligne {
+  display: flex;
+  flex-direction: row;
+  margin: 0.5em;
+}
+.boxStandard {
+  border: 3px solid white;
+  align-items: center;
+  justify-content: center;
+}
+/*Presentation classique*/
+/*CSS Navigation*/
 .listNav {
     list-style: none;
     display: flex;
@@ -39,44 +81,14 @@ header {
   color:  #36281d;
 }
 /*CSS Navigation*/
-/*Corps de la page*/
-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
-}
-/*Flex box*/
-.colonne {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-.ligne {
-  display: flex;
-  flex-direction: row;
-  margin: 0.5em;
-}
-/*Boxes*/
-.boxStandard {
-  border: 3px solid white;
-  align-items: center;
-  justify-content: center;
-  padding: 0.5em;
-}
-
-/*Corps de la page*/
-/*Formulaires*/
+/*Formulaire*/
 input {
   margin-left: 2em;
 }
 .formulaire {
-  height: 50vh;
-  color: white;
   display: flex;
   flex-direction: column;
+  color: white;
 }
 .inputFormulaire {
     width: 26vh;
@@ -97,21 +109,7 @@ input {
   margin: 0.5em;
   border-radius: 20px;
 }
-/*Formulaires*/
-/*Footer*/
-footer {
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
-  animation: gradient 45s ease infinite;
-  color: #36281d;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  width: 100%;
-  flex-wrap: wrap;
-}
-/*Footer*/
+/*Formulaire*/
 /*Effet spéciaux*/
 @keyframes gradient {
 	0% {
