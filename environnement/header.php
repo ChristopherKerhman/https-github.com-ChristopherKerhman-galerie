@@ -10,10 +10,21 @@ $vueJSCDN = 'node_modules/vue/dist/vue.global.prod.js';
 require 'objets/paramDB.php';
 require 'objets/readDB.php';
 // Préparation de la requette :
-$requetteSQL = "SELECT `idNav`, `nomLien`, `cheminNav`, `valide`, `levelAdmi`
-FROM `nav`
-WHERE `valide` = 1 AND`levelAdmi` = 0
-ORDER BY `ordre` DESC";
+// Mutliple menu selon la connexion
+if (!isset($_SESSION['role'])) {
+  // Menu visiteur non connecter
+  $requetteSQL = "SELECT `idNav`, `nomLien`, `cheminNav`, `valide`, `levelAdmi`
+  FROM `nav`
+  WHERE `valide` = 1 AND`levelAdmi` = 0
+  ORDER BY `ordre` DESC";
+} else {
+  $requetteSQL = "SELECT `idNav`, `nomLien`, `cheminNav`, `valide`, `levelAdmi`
+  FROM `nav`
+  WHERE `valide` = 1 AND`levelAdmi` = 1
+  ORDER BY `ordre` ASC";
+}
+
+
 $prepare = [];
 $readNav = new readDB($requetteSQL, $prepare);
 $dataNav = $readNav->read();
