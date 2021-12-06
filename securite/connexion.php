@@ -17,13 +17,13 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
   $prepare = [['prep'=> ':login', 'variable' => $login]];
   $readLogin = new readDB($requetteSQL, $prepare);
   $dataUser = $readLogin->read();
-  if (($dataUser[0]['login'] == $login) 
+  if (($dataUser[0]['login'] == $login)
   && (password_verify($moria, $dataUser[0]['mdp']))
   && ($dataUser[0]['valide'] == 1)) {
     $_SESSION['idUser'] = $dataUser[0]['idUser'];
     $_SESSION['role'] = $dataUser[0]['role'];
     $_SESSION['login']= $dataUser[0]['login'];
-    header('location:../index.php?message="Bienvenu'.$dataUser[0]['login'].'"');
+    header('location:../index.php?message="Bienvenu '.$dataUser[0]['login'].'"');
   } else {
       header('location:../index.php?message="Login ou mot de passe incorrecte"');
   }

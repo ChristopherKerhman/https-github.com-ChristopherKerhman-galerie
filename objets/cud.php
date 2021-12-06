@@ -19,4 +19,7 @@ class CurDB extends ParamDB {
     }
     $data->execute();
   }
+  function __destruct() {
+    
+  }
 }

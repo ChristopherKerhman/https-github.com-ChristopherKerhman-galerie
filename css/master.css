@@ -16,6 +16,9 @@ h1, h2, h3, a {
   padding-top: 0.2em;
   padding-bottom: 0.2em;
 }
+ul {
+  list-style: none;
+}
 /*CSS Navigation*/
 header {
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
@@ -87,6 +90,11 @@ input {
     border: 6px double #9d7b60;
     border-radius: 5px;
 }
+.inputFormulaireNumber {
+  width: 5vh;
+  border: 6px double #9d7b60;
+  border-radius: 5px;
+}
 .buttonStandard {
   max-width: 20em;
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
@@ -95,6 +103,16 @@ input {
   color: #000508;
   font-family: 'Major Mono Display', monospace;
   font-size: 1.5em;
+  text-align: center;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  margin: 0.5em;
+  border-radius: 20px;
+}
+.buttonAdmin {
+  font-size: 1em;
+  background-color: #b1b1b1;
+  color: #000508;
   text-align: center;
   padding-left: 0.5em;
   padding-right: 0.5em;

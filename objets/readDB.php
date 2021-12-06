@@ -22,5 +22,7 @@ class readDB extends ParamDB {
     $dataTraiter = $data->fetchAll();
     return $dataTraiter;
   }
-  function __destruct(){}
+  function __destruct() {
+    
+  }
 }
