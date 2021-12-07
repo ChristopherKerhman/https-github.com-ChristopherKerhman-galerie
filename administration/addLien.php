@@ -1,4 +1,5 @@
 <?php
+include 'administration/securite.php';
 $yes = ['non', 'oui'];
 $admin = ['Visiteur', 'Utilisateur', 'Createur', 'Administrateur' ];
  ?>
@@ -21,9 +22,6 @@ $admin = ['Visiteur', 'Utilisateur', 'Createur', 'Administrateur' ];
  </form>
 
 <?php
-if ($_SESSION['role'] != 3) {
-  header('location:https://www.google.com/');
-}
 //print_r($_SESSION);
 // Recherche des liens de la navigation
 // objets et fonction nécessaire au fonctionnement de la log

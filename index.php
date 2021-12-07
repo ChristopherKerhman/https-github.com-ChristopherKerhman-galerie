@@ -1,6 +1,6 @@
 <?php include 'environnement/header.php' ?>
     <section>
-      <?php if(isset($_GET['message'])){ echo '<h4>'.filter($_GET['message']).'</h4>'; } ?>
+      <?php if(isset($_GET['message'])){ echo '<h3>'.filter($_GET['message']).'</h3>'; } ?>
       <article>
         <?php
         if (isset($_GET['idNav'])) {
