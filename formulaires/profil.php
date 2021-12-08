@@ -10,4 +10,3 @@ require 'objets/ficheUser.php';
 $affichage = new ficheUser ($dataUser);
 $affichage->fiche();
 $affichage->modUserFiche();
-?>
