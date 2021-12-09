@@ -1,3 +1,3 @@
 <?php
 session_destroy();
-include 'environnement/corpsDeflaut.php';
+header('location:index.php?message=Deconnexion effectuée');
