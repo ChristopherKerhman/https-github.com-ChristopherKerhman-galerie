@@ -6,5 +6,33 @@ Vagabonder dans les méandres de la galerie, tel un lézard numérique, pour dé
 </p>
 </article>
 <article>
+  <?php // trie des 6 dernière oeuvre intégrer à la DB
+  $requetteSQL = "SELECT `idOeuvre`, `nomOeuvre`, `nomFichier`, `prixOeuvre`, `createurOeuvre`, `cool`, `Speudo` FROM `oeuvres`
+INNER JOIN `artistes` ON `createurOeuvre` = `idArtiste`
+ORDER BY `idOeuvre` DESC LIMIT 6";
+$prepare = [];
+$galerie = new readDB($requetteSQL, $prepare);
+$data6O = $galerie->read();
+
+   ?>
   <h3>Les dernières oeuvres de la Galerie</h3>
+  <div class="gallery">
+    <?php
+    foreach ($data6O as $key) {
+      $price = $key['cool'] + $key['prixOeuvre'];
+      echo '<div class="item">
+      <figure>
+             <img src="galerieWeb/'.$key['nomFichier'].'" alt="'.$key['nomOeuvre'].' width="100em" />
+               <figcaption>Nom de l\'oeuvre :'.$key['nomOeuvre'].' Artiste : '.$key['Speudo'].' Prix : '.$price.' €
+               <form  action="CUD/Update/cool.php" method="post">
+                 <input type="hidden" name="idOeuvre" value="'.$key['idOeuvre'].'">
+                 <button class="buttonStandard" type="submit" name="button">+1 € à + '.$key['cool'].' €</button>
+               </form></figcaption>
+           </figure>
+           </div>';
+
+    }
+
+     ?>
+</div>
 </article>

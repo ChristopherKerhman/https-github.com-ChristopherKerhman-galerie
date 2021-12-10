@@ -3,7 +3,6 @@ session_start();
 include '../../securite/securiterCreateur.php';
 require '../../objets/paramDB.php';
 require '../../objets/cud.php';
-require '../../objets/readDB.php';
 include '../fonctionsDB.php';
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
   if(($_FILES['photoIdentiter']['size'] < 1000000) ||($_FILES['photoIdentiter']['type'] != 'image/png') || ($_FILES['photoIdentiter']['type'] != 'image/jpeg') ) {

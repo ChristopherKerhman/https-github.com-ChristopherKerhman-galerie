@@ -28,7 +28,6 @@ if (!isset($_SESSION['role'])) {
 $readNav = new readDB($requetteSQL, $prepare);
 $dataNav = $readNav->read();
 ?>
- ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
   <head>
