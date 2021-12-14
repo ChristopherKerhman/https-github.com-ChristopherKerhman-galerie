@@ -17,6 +17,7 @@
             include 'environnement/corpsDeflaut.php';
          } else {
             include $dataAffichage[0]['cheminNav'];
+            $idNav = $dataAffichage[0]['cheminNav'];
          }
           ?>
       </article>

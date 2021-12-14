@@ -5,6 +5,7 @@ require '../../objets/cud.php';
 require '../../objets/readDB.php';
 include '../fonctionsDB.php';
   if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $idNav = filter($_POST['idNav']);
     $idOeuvre = filter($_POST['idOeuvre']);
     // Récupération de la valeur de cool
     $requetteSQL = "SELECT `cool` FROM `oeuvres` WHERE `idOeuvre`= :idOeuvre";
@@ -19,7 +20,7 @@ include '../fonctionsDB.php';
       ['prep'=> ':cool', 'variable' => $cool]];
       $updateCool = new CurDB($requetteSQL, $prepare);
       $updateCool->actionDB();
-  header('location:../../index.php?message=Vous avez ajouter '.($cool - $oldCool).' €');
+  header('location:../../index.php?idNav='.$idNav.' & message=Vous avez ajouter '.($cool - $oldCool).' €');
   } else {
     header('location:../../index.php?message=Erreur de traitement');
   }

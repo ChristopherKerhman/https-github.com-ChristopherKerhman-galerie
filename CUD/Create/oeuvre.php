@@ -16,6 +16,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $createurOeuvre = filter($_POST['createurOeuvre']);
     $nomFichier = filter($_FILES['nomFichier']['name']);
     $tailleOeuvre = filter($_FILES['nomFichier']['size']);
+    $cool = rand(4,10);
     $prepare = [
       ['prep'=> ':nomOeuvre', 'variable' => $nomOeuvre],
       ['prep'=> ':description', 'variable' => $description],
@@ -23,9 +24,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
       ['prep'=> ':createurOeuvre', 'variable' => $createurOeuvre],
       ['prep'=> ':nomFichier', 'variable' => $nomFichier],
       ['prep'=> ':tailleOeuvre', 'variable' => $tailleOeuvre],
+      ['prep'=> ':cool', 'variable' => $cool],
     ];
-      $requetteSQL = "INSERT INTO `oeuvres`(`nomOeuvre`, `description`, `nomFichier`, `prixOeuvre`, `tailleOeuvre`, `createurOeuvre`)
-      VALUES (:nomOeuvre, :description, :nomFichier, :prixOeuvre, :tailleOeuvre, :createurOeuvre)";
+      $requetteSQL = "INSERT INTO `oeuvres`(`nomOeuvre`, `description`, `nomFichier`, `prixOeuvre`, `tailleOeuvre`, `createurOeuvre`, `cool`)
+      VALUES (:nomOeuvre, :description, :nomFichier, :prixOeuvre, :tailleOeuvre, :createurOeuvre, :cool)";
       $record = new CurDB($requetteSQL, $prepare);
       $record->actionDB();
       move_uploaded_file($_FILES['nomFichier']['tmp_name'],$f = '../../galerieWeb/'.$nomFichier);

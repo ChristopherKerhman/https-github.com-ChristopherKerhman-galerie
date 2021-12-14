@@ -175,12 +175,34 @@ input {
   border-radius: 10px;
 }
 /*Formulaires*/
+
+/*Footer*/
+
+/*Footer*/
+/*Effet spéciaux*/
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+/*Effet Spéciaux Gallery*/
+.hauteurGalleryA {
+  height: 200px;
+  width: auto;
+  border-radius: 10px;
+}
 /* Galerie des images*/
 .gallery {
   margin: 100px auto 0;
   padding: 0 20px;
   padding-bottom: 10px;
-  max-width: 100%;
+  max-width: auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, 300px);
   grid-gap: 10px;
@@ -197,26 +219,18 @@ input {
   align-items: center;
   justify-content: center;
 }
-img {
-  border-radius: 10px;
+.tailleGallerie {
+  width: 180vh;
+  height: auto;
+}
+#titreOeuvre {
+  text-align: center;
+  font-size: 1.2em;
 }
 /* Galerie des images*/
-/*Footer*/
+/*Effet spéciaux*/
 
-/*Footer*/
-/*Effet spéciaux*/
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
-/*Effet spéciaux*/
+
 @media screen and (max-width: 740px) {
   .listNav {
       flex-direction: column;

@@ -27,6 +27,7 @@ if (!isset($_SESSION['role'])) {
 }
 $readNav = new readDB($requetteSQL, $prepare);
 $dataNav = $readNav->read();
+$idNav = $dataNav[0]['idNav'];
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
@@ -45,6 +46,7 @@ $dataNav = $readNav->read();
             <?php
               foreach ($dataNav as $key) {
                 echo '<li><a class="lienSite" href="index.php?idNav='.$key['idNav'].'">'.$key['nomLien'].'</a></li>';
+
               }
              ?>
           </ul>
