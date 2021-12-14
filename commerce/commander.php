@@ -5,10 +5,7 @@ require '../objets/paramDB.php';
 require '../objets/cud.php';
 require '../objets/readDB.php';
 include 'statuts.php';
-function readCommande ($SQL, $data) {
-  $read = new readDB($SQL, $data);
-  return $read->read();
-}
+include 'readCommande.php';
   if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $idNav = filter($_POST['idNav']);
     $idOeuvre = filter($_POST['idOeuvre']);
@@ -20,7 +17,7 @@ function readCommande ($SQL, $data) {
     $prepare = [['prep'=> ':idClient', 'variable' => $idClient]];
     $dataCommande = readCommande($requetteSQL, $prepare);
     if(empty($dataCommande)) {
-      print_r($dataCommande);
+      //print_r($dataCommande);
       // Aucune nouvelle commande trouver
       // On crée la nouvelle commande
       $requetteSQL = "INSERT INTO `commandes`(`idClient`) VALUES (:idClient)";
@@ -32,6 +29,7 @@ function readCommande ($SQL, $data) {
       // On lit le nouvelle idCommande
       $dataCommande = readCommande($requetteSQL, $prepare);
       $idCommande = $dataCommande[0]['idCommande'];
+      $totalCommande = 0;
     } else {
       $idCommande = $dataCommande[0]['idCommande'];
     }
@@ -40,10 +38,10 @@ function readCommande ($SQL, $data) {
     $requetteSQL = "SELECT `prixOeuvre`, `cool` FROM `oeuvres` WHERE `idOeuvre` = :idOeuvre";
     $prepare = [['prep'=> ':idOeuvre', 'variable' => $idOeuvre]];
   $prixOeuvre = readCommande($requetteSQL, $prepare);
+  // Update de prix de la commande
   $prixOeuvre = $prixOeuvre[0]['prixOeuvre'] + $prixOeuvre[0]['cool'];
     //Requette d'enregistrement de l'oeuvre
-    $requetteSQL = "INSERT INTO `detailCommande`( `idDevis`, `prixHT`, `idOeuvre`)
-    VALUES (:idDevis,:prixHT, :idOeuvre)";
+    $requetteSQL = "INSERT INTO `detailCommande`( `idDevis`, `prixHT`, `idOeuvre`) VALUES (:idDevis,:prixHT, :idOeuvre)";
     $prepare = [['prep'=> ':idOeuvre', 'variable' => $idOeuvre],
                 ['prep'=> ':idDevis', 'variable' => $idCommande],
                 ['prep'=> ':prixHT', 'variable' => $prixOeuvre]];

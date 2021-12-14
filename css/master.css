@@ -10,13 +10,14 @@ font-family: 'Major Mono Display', monospace;
   @import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
 html {
   background-color: #000508;
+  width: auto;
 }
   body {
       display: grid;
       align-content: stretch;
       align-items: start;
-      justify-content: center;
       justify-items: stretch;
+      width: 100%;
   }
 h1, h2, h3, a {
   font-family: 'Major Mono Display', monospace;
@@ -64,6 +65,7 @@ footer {
 .listNav {
     list-style: none;
     display: flex;
+    flex-wrap: wrap;
     padding: 0em 1em 0.5em 1em;
     flex-direction: row;
     justify-content: space-between;
