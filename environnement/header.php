@@ -15,13 +15,13 @@ if (!isset($_SESSION['role'])) {
   // Menu visiteur non connecter
   $requetteSQL = "SELECT `idNav`, `nomLien`, `cheminNav`, `valide`, `levelAdmi`
   FROM `nav`
-  WHERE `valide` = 1 AND `levelAdmi` = :levelAdmi
+  WHERE `valide` = 1 AND `levelAdmi` = :levelAdmi AND `centrale` = 0
   ORDER BY `ordre` DESC";
   $prepare = [['prep'=> ':levelAdmi', 'variable' => 0]];
 } else {
   $requetteSQL = "SELECT `idNav`, `nomLien`, `cheminNav`, `valide`, `levelAdmi`
   FROM `nav`
-  WHERE `valide` = 1 AND `levelAdmi` = :levelAdmi
+  WHERE `valide` = 1 AND `levelAdmi` = :levelAdmi AND `centrale` = 0
   ORDER BY `ordre` ASC";
   $prepare = [['prep'=> ':levelAdmi', 'variable' => $_SESSION['role']]];
 }

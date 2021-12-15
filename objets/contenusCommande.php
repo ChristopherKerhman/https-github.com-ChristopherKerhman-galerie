@@ -20,9 +20,12 @@ class contenusDevis {
   public function affichageContenus() {
     $numeroCommande = $this->commande[0]['idCommande'];
     $etat = $this->commande[0]['statutsCommande'];
-    echo '<article>
+
+if (!empty($this->details)) {    echo '<article>
       <ul>
       <li><strong>Numéro de commande </strong> GLN'.$numeroCommande.'</li>';
+    }
+
     foreach ($this->details as $key) {
       echo '<li>n° article : '.$key['idOeuvre'].'</li>
             <li>Nom de l\'oeuvre : '.$key['nomOeuvre'].'</li>
@@ -36,16 +39,24 @@ class contenusDevis {
             </form>
             </li>';
           }
+
+          if (!empty($this->details)) {
     echo '<li>****** Total '.$this->statuts[$etat]['etape'].'******</li>
     <li>Total HT : '.$this->totalCommande.' €</li>
     <li>Total TTC : '.round(  $this->totalCommande * 1.2, 2).' €</li></ul></article>';
   }
+  }
   public function signerDevis () {
-    $numeroCommande = $this->commande[0]['idCommande'];
-    echo '<form action="CUD/Update/panier.php" method="post">
-      <input type="hidden" name="idCommande" value="'.$numeroCommande.'">
-      <input type="hidden" name="idNav" value="'.$this->idNav.'">
-      <button class="buttonStandard" type="submit" name="button">Valider le panier</button>
-    </form>';
+    if (!empty($this->details)) {
+      $numeroCommande = $this->commande[0]['idCommande'];
+      echo '<form action="CUD/Update/panier.php" method="post">
+        <input type="hidden" name="idCommande" value="'.$numeroCommande.'">
+        <input type="hidden" name="idNav" value="'.$this->idNav.'">
+        <button class="buttonStandard" type="submit" name="button">Signer le devis</button>
+      </form>';
+    } else {
+      echo 'Aucun élément dans votre panier.';
+    }
+
   }
 }

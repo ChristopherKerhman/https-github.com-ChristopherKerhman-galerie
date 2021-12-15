@@ -13,7 +13,7 @@ include 'readCommande.php';
     // Recherche si un commande avec statutCommande = 0 existe.
     $requetteSQL = "SELECT `idCommande`, `idClient`, `statutsCommande`
     FROM `commandes`
-    WHERE `idClient`= idClient AND `statutsCommande` = 0";
+    WHERE `idClient`= :idClient AND `statutsCommande` = 0";
     $prepare = [['prep'=> ':idClient', 'variable' => $idClient]];
     $dataCommande = readCommande($requetteSQL, $prepare);
     if(empty($dataCommande)) {
@@ -25,7 +25,7 @@ include 'readCommande.php';
       $newCommande->actionDB();
       $requetteSQL = "SELECT `idCommande`, `idClient`, `statutsCommande`
       FROM `commandes`
-      WHERE `idClient`= idClient AND `statutsCommande` = 0";
+      WHERE `idClient`= :idClient AND `statutsCommande` = 0";
       // On lit le nouvelle idCommande
       $dataCommande = readCommande($requetteSQL, $prepare);
       $idCommande = $dataCommande[0]['idCommande'];

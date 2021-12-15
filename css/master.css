@@ -46,11 +46,9 @@ header {
   animation: gradient 280s ease infinite;
   color: #36281d;
   text-align: center;
-  /*border-radius: 20px 20px 0px 0px;*/
 }
 footer {
-  /*border-radius: 0px 0px 20px 20px*/
-    width: 100%;
+  width: 100%;
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   background-size: 400% 400%;
   animation: gradient 280s ease infinite;
@@ -71,8 +69,12 @@ footer {
     justify-content: space-between;
 }
 .lienAdmin {
+  text-decoration: none;
   font-family: serif;
   color: white;
+}
+.lienAdmin:hover {
+  text-decoration: underline;
 }
 .lienSite {
   text-decoration: none;

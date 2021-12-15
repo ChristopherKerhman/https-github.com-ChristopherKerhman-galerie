@@ -1,6 +1,17 @@
 <?php
 include 'commerce/readCommande.php';
 require 'objets/contenusCommande.php';
+// Début Navigation interne à la page
+$requetteSQLNavCentrale = "SELECT `idNav`, `nomLien`, `cheminNav`, `valide`, `levelAdmi`
+FROM `nav`
+WHERE `valide` = 1 AND `levelAdmi` = :levelAdmi AND `centrale` = 1
+ORDER BY `ordre` ASC";
+$pre = [['prep'=> ':levelAdmi', 'variable' => $_SESSION['role']]];
+$readNavCentrale = new readDB($requetteSQLNavCentrale, $pre);
+$dataNavCentrale = $readNavCentrale->read();
+$idNavFacture = $dataNavCentrale[0]['idNav'];
+$nomLien = $dataNavCentrale[0]['nomLien'];
+// Fin Navigation interne à la page
 //Lire le devis du Client
 $requetteSQL = "SELECT `idCommande`, `statutsCommande` FROM `commandes` WHERE `statutsCommande` = 0 AND `idClient` = :idClient";
 $prepare = [['prep'=> ':idClient', 'variable' => $_SESSION['idUser']]];
@@ -23,30 +34,26 @@ if(!empty($devis)) {
 //Lire les facture du client
 $requetteSQL = "SELECT `idCommande`, `statutsCommande`, `prixHT`
 FROM `commandes`
-WHERE `statutsCommande` >= 1 AND `idClient` = idClient";
+WHERE `statutsCommande` >= 1 AND `idClient` = :idClient";
 $prepare = [['prep'=> ':idClient', 'variable' => $_SESSION['idUser']]];
 $facture = readCommande($requetteSQL, $prepare);
 require 'objets/contenusFacture.php';
 $statuts = [['etat' => 0, 'etape' => 'Devis'],
    ['etat' => 1, 'etape' => 'Facture'],
-   ['etat' => 2, 'etape' => 'Livraison'],
-   ['etat' => 3, 'etape' => 'Reception'],
-   ['etat' => 4, 'etape' => 'Archiver'],];
+   ['etat' => 2, 'etape' => 'Facture'],
+   ['etat' => 3, 'etape' => 'Livraison'],
+   ['etat' => 4, 'etape' => 'Reception'],
+   ['etat' => 5, 'etape' => 'Archiver'],];
 foreach ($facture as $key) {
   // On affiche chaque élément de la facture
   $idCommande = $key['idCommande'];
   $dataDetail = new contenusFacture($idCommande);
-  echo '<ul> numero de commande : LNG : '.$idCommande.'';
-
+  echo '<ul> numero de la facture : LNG : '.$idCommande.'';
   $dataCommande = $dataDetail->affichageDetails();
   echo '<li>********</li>
     <li>Prix HT :'.$key['prixHT'].' €</li>
     <li>Prix TTC :'.$key['prixHT'] * 1.2.' €</li>
-    <li>Statuts de la commande : '.$statuts[$key['statutsCommande']]['etape'].'</li>
+    <li><strong>Statuts de la commande : '.$statuts[$key['statutsCommande']]['etape'].'</strong></li>
+     <li><a class="lienAdmin" href="index.php?idNav='.$idNavFacture.' & idCommande = '.$idCommande.'">'.$nomLien.' LNG : '.$idCommande.'</a></li>
   </ul>';
-
-  //print_r($dataCommande);
 }
-
-
- ?>
