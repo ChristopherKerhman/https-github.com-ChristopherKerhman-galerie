@@ -13,14 +13,14 @@ include '../fonctionsDB.php';
     $readCool = new readDB($requetteSQL, $prepare);
     $oldCool = $readCool->read();
     $oldCool = $oldCool[0]['cool'];
-    $cool = rand(1,$oldCool) + $oldCool;
+    $cool = 1 + $oldCool;
     $requetteSQL = "UPDATE `oeuvres` SET `cool`= :cool WHERE `idOeuvre` = :idOeuvre";
     $prepare = [
       ['prep'=> ':idOeuvre', 'variable' => $idOeuvre],
       ['prep'=> ':cool', 'variable' => $cool]];
       $updateCool = new CurDB($requetteSQL, $prepare);
       $updateCool->actionDB();
-  header('location:../../index.php?idNav='.$idNav.' & message=Vous avez ajouter '.($cool - $oldCool).' €');
+  header('location:../../index.php?idNav='.$idNav.'');
   } else {
     header('location:../../index.php?message=Erreur de traitement');
   }

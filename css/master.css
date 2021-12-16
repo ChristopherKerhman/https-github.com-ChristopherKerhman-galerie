@@ -85,6 +85,14 @@ footer {
   text-decoration: underline;
   color:  #36281d;
 }
+.navGallery {
+  text-decoration: none;
+  color: white;
+  font-size: 1em;
+}
+.navGallery:hover {
+  text-decoration: underline;
+}
 /*CSS Navigation*/
 /*Corps de la page*/
 section {
@@ -129,6 +137,10 @@ article {
   margin-top: 1em;
   /*border-radius: 20px 0px 20px 0px;*/
   /*border: 5px #9d7b60 ridge;*/
+}
+.center {
+  text-align: center;
+  margin-bottom: 0.25em;
 }
 /*Corps de la page*/
 /*Formulaires*/
@@ -201,6 +213,15 @@ input {
   width: auto;
   border-radius: 10px;
 }
+.hauteurGalleryM {
+  height: 100vh;
+  width: auto;
+}
+.couloirGallery {
+  background-color: #36281d;
+  padding: 0.5em;
+  margin-top: 0.75em;
+}
 /* Galerie des images*/
 .gallery {
   margin: 100px auto 0;
@@ -247,5 +268,8 @@ input {
   }
   .buttonStandard {
       font-size: 0.8em;
+  }
+  .hauteurGalleryM {
+    height: 60vh;
   }
 }

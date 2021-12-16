@@ -11,13 +11,17 @@ require 'objets/oeuvre.php';
  ?>
  <section>
 <article class="tailleGallerie">
-<h3>Gallerie de nos oeuvres</h3>
+<h3>Les oeuvres de nos artistes</h3>
 <div class="gallery">
     <?php
        foreach ($dataGallerie as $key) {
          $oeuvreUnique = new oeuvre ($key, $idNav);
          $oeuvreUnique->affichageGallery();
-
+         $oeuvreUnique->navigation();
+         echo'</li></ul>
+                  </figcaption>
+              </figure>
+              </div>';
        }
 
      ?>

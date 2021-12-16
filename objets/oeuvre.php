@@ -18,10 +18,19 @@ class oeuvre {
     $this->cool = $key['cool'];
     $this->Speudo = $key['Speudo'];
     $this->idNav = $idNav;
-    $this->prixTTC = round((($this->prixOeuvre + $this->cool) * 1.2), 2);
+    $this->prixHT =   $this->prixOeuvre + $this->cool;
+    $this->prixTTC = round(($this->prixHT * 1.2), 2);
+  }
+  public function navigation () {
+    $SQL = "SELECT `idNav`, `nomLien`, `cheminNav`, `valide`, `levelAdmi`
+    FROM `nav`
+    WHERE `valide` = 1 AND `levelAdmi` = :levelAdmi AND `centrale` = 1 AND `ordre` = 2";
+    $pre = [['prep'=> ':levelAdmi', 'variable' => $_SESSION['role']]];
+    $readLien = new readDB($SQL, $pre);
+    $dataLien = $readLien->read();
+    echo '<a class="navGallery" href="index.php?idNav='.$dataLien[0]['idNav'].'& idOeuvre='.$this->idOeuvre.'">'.$dataLien[0]['nomLien'].' '.$this->nomOeuvre.'  </a>';
   }
   public function affichageGallery () {
-
     echo '<div class="item">
     <figure>
            <img class="hauteurGalleryA" src="galerieWeb/'.$this->nomFichier.'" alt="'.$this->nomOeuvre.' width="100em" />
@@ -35,7 +44,7 @@ class oeuvre {
              <form  action="CUD/Update/cool.php" method="post">
                <input type="hidden" name="idOeuvre" value="'.$this->idOeuvre.'">
                <input type="hidden" name="idNav" value="'.$this->idNav.'">
-               <button class="buttonStandard" type="submit" name="button">+1 € à + '.$this->cool.' €</button>
+               <button class="buttonStandard" type="submit" name="button">Populaire +1</button>
              </form>
              <li>
              <form  action="commerce/commander.php" method="post">
@@ -43,11 +52,8 @@ class oeuvre {
                <input type="hidden" name="idNav" value="'.$this->idNav.'">
                <button class="buttonStandard" type="submit" name="button">Commander</button>
              </form>
-             </li>
-             </li></ul>
-             </figcaption>
-         </figure>
-         </div>';
+             </li>';
+             // Compléter avec function navigation() ou  le code de fermeture :    echo'</li></ul></figcaption></figure></div>'; dans le fichier
   }
 
   public function affichageVisiteur () {
@@ -65,6 +71,7 @@ class oeuvre {
          </figure>
          </div>';
   }
+
 }
 
  ?>
