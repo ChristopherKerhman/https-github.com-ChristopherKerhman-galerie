@@ -8,9 +8,16 @@ sable sombre :#36281d;
 font-family: 'Major Mono Display', monospace;
 */
   @import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
+html {
+  background-color: #000508;
+  width: auto;
+}
   body {
-      width: 100%;
-      background-color: #000508;
+      display: grid;
+      align-content: stretch;
+      align-items: start;
+      justify-items: stretch;
+      width: auto;
   }
 h1, h2, h3, a {
   font-family: 'Major Mono Display', monospace;
@@ -59,7 +66,6 @@ header {
   background: #525e54;
   color: white;
   text-align: center;
-  margin-bottom: 1em;
 }
 footer {
   width: 95%;
@@ -71,7 +77,6 @@ footer {
   justify-content: space-around;
   width: 100%;
   flex-wrap: wrap;
-  margin-top: 1em;
 }
 
 .listNav {
@@ -253,14 +258,16 @@ input {
   max-width:100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, 300px);
-  grid-gap: 10px;
-  justify-content: center;
+   grid-gap: 10px;
+   justify-content: center;
 }
 .item {
   min-height: 200px;
   min-width: 200px;
-  background: #525e54;
+    background: #525e54;
   color: white;
+  /*border: 3px solid #9EFCEA;*/
+  /*border-radius: 20px 0px 20px 0px;*/
   display: flex;
   align-items: center;
   justify-content: center;
@@ -278,36 +285,19 @@ input {
 
 
 @media screen and (max-width: 740px) {
+  .listNav {
+      flex-direction: column;
+  }
   nav {
     font-size: 0.5em;
   }
   h1, h2, h3, a {
     font-size: 1em;
   }
-  .listNav {
-      flex-direction: column;
-  }
   .buttonStandard {
       font-size: 0.8em;
   }
   .hauteurGalleryM {
     height: 60vh;
-  }
-  .gallery {
-    margin: 100px auto 0;
-    padding: 0 20px;
-    max-width:auto;
-    display: flex;
-    flex-direction: column;
-    margin: 5px;
-  }
-  .item {
-    min-height: 100px;
-    min-width: 100px;
-    background: #525e54;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
   }
 }

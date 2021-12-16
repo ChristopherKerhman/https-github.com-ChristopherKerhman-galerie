@@ -39,12 +39,7 @@ WHERE `statutsCommande` >= 1 AND `statutsCommande` <= 4 AND `idClient` = :idClie
 $prepare = [['prep'=> ':idClient', 'variable' => $_SESSION['idUser']]];
 $facture = readCommande($requetteSQL, $prepare);
 require 'objets/contenusFacture.php';
-$statuts = [['etat' => 0, 'etape' => 'Devis'],
-   ['etat' => 1, 'etape' => 'Facture'],
-   ['etat' => 2, 'etape' => 'Payer'],
-   ['etat' => 3, 'etape' => 'Livraison'],
-   ['etat' => 4, 'etape' => 'Reception'],
-   ['etat' => 5, 'etape' => 'Archiver'],];
+include 'stockage/statuts.php';
 foreach ($facture as $key) {
   // On affiche chaque élément de la facture
   $idCommande = $key['idCommande'];
@@ -60,3 +55,4 @@ foreach ($facture as $key) {
   }
   echo '</ul>';
 }
+?>
