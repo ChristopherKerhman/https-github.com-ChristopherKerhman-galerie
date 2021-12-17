@@ -25,7 +25,7 @@ class monoOeuvre {
              <li class="center">Popularité de l\'oeuvre : '.$dataMonoOeuvre[0]['cool'].'</li>
              <li>Note sur l\'oeuvre : '.$dataMonoOeuvre[0]['description'].'</li>
              <li>Prix actuel de l\'oeuvre HT : '.$prixHT.' €</li>
-             <li>Prix actuel de l\'oeuvre HT : '.round($prixTTC, 2).' €</li>
+             <li>Prix actuel de l\'oeuvre TTC : '.round($prixTTC, 2).' €</li>
              </strong>
              </ul>
              </figcaption>
