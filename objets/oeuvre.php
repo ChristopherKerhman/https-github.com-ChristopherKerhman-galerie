@@ -38,7 +38,7 @@ class oeuvre {
              <ul>
              <li><h4 id="titreOeuvre">'.$this->nomOeuvre.'</h4></li>
              <li>Artiste : '.$this->Speudo.'</li>
-             <li>Prix : '.$this->prixTTC.' € TTC</li>
+             <li class="prix">Prix : '.$this->prixTTC.' € TTC</li>
              <li>Popularité : '.$this->cool.'</li>
              <li>
              <form  action="CUD/Update/cool.php" method="post">
@@ -64,7 +64,7 @@ class oeuvre {
              <ul>
              <li><h4 id="titreOeuvre">'.$this->nomOeuvre.'</h4></li>
              <li>Artiste : '.$this->Speudo.'</li>
-             <li>Prix : '.$this->prixTTC.' € TTC</li>
+             <li class="prix">Prix : '.$this->prixTTC.' € TTC</li>
              <li>Popularité : '.$this->cool.'</li>
              </ul>
              </figcaption>

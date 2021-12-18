@@ -12,5 +12,3 @@ $commentaires = new commentaires($idOeuvre, $idNav);
 $dataCommentaire = $commentaires->readCommentaires();
 $commentaires->redigerCommentaire();
 $commentaires->affichageCommentaire($dataCommentaire);
-
- ?>

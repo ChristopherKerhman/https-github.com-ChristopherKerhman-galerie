@@ -9,8 +9,11 @@ font-family: 'Major Mono Display', monospace;
 */
   @import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
   body {
-      width: 100%;
+      width: 100vm;
       background-color: #000000ff;
+      color: white;
+      height: 200px;
+
   }
 h1, h2, h3, a {
   font-family: 'Major Mono Display', monospace;
@@ -86,6 +89,12 @@ section {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+}
+.sectionGallery {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
   color: white;
 }
 article {
@@ -120,8 +129,6 @@ article {
   padding: 0.75em;
   margin-top: 1em;
   margin-bottom: 1em;
-  /*border-radius: 20px 0px 20px 0px;*/
-  /*border: 5px #9d7b60 ridge;*/
 }
 .center {
   text-align: center;
@@ -166,7 +173,10 @@ input {
   padding-left: 0.5em;
   padding-right: 0.5em;
   margin: 0.5em;
-  border-radius: 20px;
+  border-radius: 10px;
+}
+.buttonStandard:hover {
+  background-color: #fca311ff;
 }
 .buttonAdmin {
   font-size: 1em;
@@ -225,8 +235,8 @@ input {
   justify-content: center;
 }
 .item {
-  min-height: 200px;
-  min-width: 200px;
+  min-height: auto;
+  min-width: auto;
   background: #14213dff;
   color: #e5e5e5ff;
   display: flex;
@@ -248,26 +258,49 @@ figure {
   align-items: center;
   justify-content: center;
 }
+.prix {
+  font-weight: bolder;
+}
 /* Galerie des images*/
 /*Effet spéciaux*/
-@media screen and (max-width: 740px) {
+/*@media screen and (max-width: 740px)*/
+@media (max-width: 400px ), screen and (orientation: portrait) {
   body {
     width: fit-content;
   }
-  header {
-    width: inherit;
+  header, footer {
+    width: auto;
   }
   nav {
-    font-size: 0.5em;
+    font-size: 1.5em;
   }
-  h1, h2, h3, a {
-    font-size: 1em;
+  h1 {
+  font-size: 2.5em;
+  }
+
+  h2, h3, a {
+    font-size: 2em;
   }
   img {
     height: 75%;
   }
+  textarea {
+    font-size: 1.5em;
+  }
+  input {
+    font-size: 1.5em;
+  }
+  .formulaire {
+    font-size: 2em;
+  }
+  .inputFormulaire {
+    width: 50vh;
+  }
   .listNav {
       flex-direction: column;
+  }
+  .navGallery {
+    font-size: 2em;
   }
   .buttonStandard {
       font-size: 0.8em;
@@ -283,6 +316,15 @@ figure {
     flex-direction: column;
     margin: 5px;
   }
+  .couloirGallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #14213dff;
+    padding: 0.5em;
+    margin-top: 0.75em;
+  }
   .item {
     background: #14213dff;
     color: white;
@@ -291,5 +333,8 @@ figure {
     justify-content: center;
     padding-left: 3em;
     padding-right: 3em;
+  }
+  .buttonStandard {
+    font-size: 2.5em;
   }
 }
