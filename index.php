@@ -1,7 +1,5 @@
 <?php include 'environnement/header.php' ?>
-    <section>
       <?php if(isset($_GET['message'])){ echo '<h3>'.filter($_GET['message']).'</h3>'; } ?>
-      <article>
         <?php
         if (isset($_GET['idNav'])) {
           $idNav = filter($_GET['idNav']);
@@ -20,6 +18,4 @@
             $idNav = $dataAffichage[0]['cheminNav'];
          }
           ?>
-      </article>
-    </section>
 <?php include 'environnement/footer.php' ?>

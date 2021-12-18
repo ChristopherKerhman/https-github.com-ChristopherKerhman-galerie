@@ -3,17 +3,19 @@ require '../../objets/paramDB.php';
 require '../../objets/cud.php';
 require '../../objets/readDB.php';
 include '../fonctionsDB.php';
+
+
+
+
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
 // Controle Formulaire en amont
-$stop = 1;
-$dataForm = [filter($_POST['nom']), filter($_POST['prenom']), filter($_POST['login']), filter($_POST['mdp'])];
+  $dataForm = [filter($_POST['nom']), filter($_POST['prenom']), filter($_POST['login']), filter($_POST['mdp'])];
   for ($i=0; $i < count($dataForm) ; $i++) {
-    if (empty($dataForm[$i])) {
-      $stop = 0;
+    if (!$dataForm[$i] == '') {
+      header('location:../../index.php?message=Il y a comme un lézard numérique');
     }
-}
+  }
 // Fin controle formulaire
-if ($stop == 1) {
   $nom = filter($_POST['nom']);
   $prenom = filter($_POST['prenom']);
   $login = filter($_POST['login']);
@@ -36,9 +38,9 @@ if ($stop == 1) {
   } else {
   header('location:../../index.php?message=Login déjà utilisé.');
   }
-  } else {
+} else {
     header('location:../../index.php?message=Il y a comme un lézard numérique');
 }
-}
+
 
  ?>
