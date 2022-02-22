@@ -1,7 +1,7 @@
 <?php // trie des 6 dernière oeuvre intégrer à la DB
 $requetteSQL = "SELECT `idOeuvre`, `nomOeuvre`, `nomFichier`, `prixOeuvre`, `createurOeuvre`, `cool`, `Speudo` FROM `oeuvres`
 INNER JOIN `artistes` ON `createurOeuvre` = `idArtiste`
-ORDER BY `createurOeuvre`";
+ORDER BY `createurOeuvre`, `cool` DESC";
 $prepare = [];
 $galerie = new readDB($requetteSQL, $prepare);
 $dataGallerie = $galerie->read();

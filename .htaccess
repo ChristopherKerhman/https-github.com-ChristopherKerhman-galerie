@@ -1,0 +1,16 @@
+# Activez HTTPS
+RewriteEngine On
+RewriteCond %{Server_Port} !=443
+RewriteRule ^(.*)$ https://galerie.ludis-r5.fr/$1 [R=301,L]
+
+# Définir le codage de caractères
+AddDefaultCharset utf-8
+
+# Alternative pour empêcher le listage des répertoires
+IndexIgnore *
+
+# Protéger le fichier wp-config.php
+<files objets/paramDB.php>
+order allow,deny
+deny from all
+</files>

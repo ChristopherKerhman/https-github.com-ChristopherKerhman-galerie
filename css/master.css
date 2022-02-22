@@ -242,7 +242,6 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 .tailleGallerie {
   width: 180vh;
@@ -290,6 +289,9 @@ figure {
   input {
     font-size: 1.5em;
   }
+  li {
+    font-size: 2em;
+  }
   .formulaire {
     font-size: 2em;
   }
@@ -307,6 +309,9 @@ figure {
   }
   .hauteurGalleryM {
     height: 60vh;
+  }
+  .hauteurGalleryA {
+    height: 42vh;
   }
   .gallery {
     margin: 100px auto 0;
